@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import HelloWorld from './component';
+import { useState } from 'react';
+import Tabs from './components/Tabs/Tabs';
+import ClassComponent from './ClassComponent';
 
 function App() {
+  const [isActive, setActive] = useState(false);
+  const activate = () => {
+    setActive(!isActive);
+  }
+
+  const options = [{ label: 'Tab 1', value: '1' }, { label: 'Tab 2', value: '2' }]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app" className="App">
+      <HelloWorld message='Hello Man' activate={activate} isActive={isActive}>
+        <p>Click me</p>
+      </HelloWorld>
+      <Tabs options={options} />
+      {/* <ClassComponent refetch={isActive} /> */}
     </div>
   );
 }
