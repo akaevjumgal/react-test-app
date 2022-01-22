@@ -13,15 +13,26 @@ export default function HelloWorld({ message, isActive = false, activate, childr
     }
 
     useEffect(() => {
+        // componentDidMount
+        // document.addEventListener('keydown', this.callback)
         fetchPosts()
-    }, [isActive])
+        return () => {
+            // componentWillUnmount
+            // document.removeEventListener('keydown', this.callback)
+        }
+    }, []) // shouldComponentUpdate
 
-    return (
+    // 1 аргумент (функция callback) - componentDidMount
+    // 2 аргумент (массив зависимостей) - shouldComponentUpdate
+    // возвращение функции в первом callback - componentWillUnmount
+
+    return !!posts.length ? (
         <div className={isActive ? 'active' : undefined}>
             {loading && 'Loading...'}
             {posts.map((post) => (
                 <div key={post.id}>{post.title}</div>
             ))}
+            <button onClick={activate}>{children}</button>
         </div>
-    )
+    ) : <div>Нет постов</div>
 }
