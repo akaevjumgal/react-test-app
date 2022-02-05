@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Tab from './Tab/Tab'
+import { Fragment } from 'react/cjs/react.production.min';
+import Tab, { withBorders } from './Tab/Tab'
 import './Tabs.css'
 
 export default function Tabs({ options = [] }) {
@@ -11,16 +12,26 @@ export default function Tabs({ options = [] }) {
         })
     }
 
+    const StyledTab = withBorders(Tab)
+
     return (
         <div className="tabs">
-            {options.map((option, index) => (
-                <Tab
-                    key={option.label}
-                    active={activeTab.value === option.value} 
-                    onClick={setTab(option)}
-                >
-                    {option.label}
-                </Tab>
+            {options.map((option) => (
+                <Fragment key={option.label}>
+                    <Tab
+                        active={activeTab.value === option.value} 
+                        onClick={setTab(option)}
+                    >
+                        {option.label}
+                    </Tab>
+                    <StyledTab
+                        key={option.label}
+                        active={activeTab.value === option.value} 
+                        onClick={setTab(option)}
+                    >
+                        {option.label}
+                    </StyledTab>
+                </Fragment>
             ))}
         </div>
     )

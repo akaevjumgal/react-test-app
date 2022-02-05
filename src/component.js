@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { ThemeContext } from "./theme"
 
 export default function HelloWorld({ message, isActive = false, activate, children }) {
     const [loading, setLoading] = useState(false)
@@ -26,8 +27,19 @@ export default function HelloWorld({ message, isActive = false, activate, childr
     // 2 аргумент (массив зависимостей) - shouldComponentUpdate
     // возвращение функции в первом callback - componentWillUnmount
 
+    const { theme } = useContext(ThemeContext)
+
+    const styles = {
+        light: {
+            color: 'white',
+        },
+        dark: {
+            color: 'black',
+        }
+    }
+
     return !!posts.length ? (
-        <div className={isActive ? 'active' : undefined}>
+        <div styles={styles[theme]} className={isActive ? 'active' : undefined}>
             {loading && 'Loading...'}
             {posts.map((post) => (
                 <div key={post.id}>{post.title}</div>

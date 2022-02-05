@@ -1,0 +1,32 @@
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  :root {
+    --bg-dark: #212121;
+    --bg-light: #ffffff;
+  }
+  
+  .light {
+    background: var(--bg-dark);
+  }
+  
+  .dark {
+    background: var(--bg-light);
+  }
+  
+  .c-light {
+    color: var(--bg-light);
+  }
+  
+  .c-dark {
+    color: var(--bg-dark);
+  }
+  
+  .custom-arrow {
+    background: aquamarine;
+  }
