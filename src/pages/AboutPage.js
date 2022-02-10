@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import Card from "../components/Card/Card";
+import CardTitle from "../components/Card/CardTitle";
 import { ModalContext } from "../ModalContext";
+import CardContent from '../components/Card/CardContent';
 
 function PriorityOption({ label, value }) {
     const styles = {
@@ -19,16 +21,17 @@ export default function AboutPage() {
     return (
         <div>
             <h1>About Us Page</h1>
+            <Card>
+                <CardTitle><h1>Carla Auditore</h1></CardTitle>
+                <CardContent>Not Assasin</CardContent>
+            </Card>
             <Card
-                title={<h1>Carla Auditore</h1>} 
-                body={<p>Not Assasin</p>}
-            />
-            <Card
-                title={<h1>Ezio Auditore</h1>} 
-                body={<p>Assasin Team Lead</p>}
                 renderPriorities={PriorityOption}
-            />
-            <button onClick={open(true)}>Open Modal</button>
+            >
+                <CardTitle><h1>Ezio Auditore</h1></CardTitle>
+                <CardContent>Assasin Team Lead</CardContent>
+            </Card>
+            <button onClick={() => open(true)}>Open Modal</button>
         </div>
     )
 }

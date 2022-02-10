@@ -1,6 +1,8 @@
 import { Fragment, useContext } from 'react'
 import './Card.css'
 import { ThemeContext } from '../../theme';
+import CardTitle from './CardTitle';
+import CardContent from './CardContent';
 
 const PRIORITIES = [
     {
@@ -24,17 +26,14 @@ function defaultRenderPriorities({ label, value }) {
 }
 
 export default function Card({ 
-    title, 
-    body,
+    children,
     renderPriorities = defaultRenderPriorities 
 }) {
     const { theme } = useContext(ThemeContext)
 
     return (
         <div className={`card card-${theme} c-${theme}`}>
-            {title}
-            {body}
-
+            {children}
             {PRIORITIES.map(({ label, value }) => 
                 <Fragment key={label}>
                     {renderPriorities({ label, value })}
