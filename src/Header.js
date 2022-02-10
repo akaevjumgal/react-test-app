@@ -10,8 +10,8 @@ export default function Header() {
 
     return (
         <div className={`header c-${theme}`}>
-            <p>Главная</p>
-            <Link to="/about"><p>О нас</p></Link>
+            <Link to="/"><p>Главная</p></Link>
+            <Link to="about"><p>О нас</p></Link>
             <ThemeButton>Mode</ThemeButton>
         </div>
     )
