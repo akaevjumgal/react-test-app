@@ -4,18 +4,24 @@ import { ThemeContext } from '../../theme';
 import CardTitle from './CardTitle';
 import CardContent from './CardContent';
 
+export const DEV_GRADES = {
+    JUNIOR: 'JUNIOR',
+    MIDDLE: 'MIDDLE',
+    SENIOR: 'SENIOR',
+}
+
 const PRIORITIES = [
     {
         label: 'Junior',
-        value: 'JUNIOR',
+        value: DEV_GRADES.JUNIOR,
     },
     {
         label: 'Middle',
-        value: 'Middle',
+        value: DEV_GRADES.MIDDLE,
     },
     {
         label: 'Senior',
-        value: 'SENIOR',
+        value: DEV_GRADES.SENIOR,
     }
 ]
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Outlet, useParams } from "react-router-dom";
-import Card from "../components/Card/Card";
+import Card, { DEV_GRADES } from "../components/Card/Card";
 import CardTitle from "../components/Card/CardTitle";
 import { ModalContext } from "../ModalContext";
 import CardContent from '../components/Card/CardContent';
