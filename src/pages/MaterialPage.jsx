@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom'
 import CardContent from '../components/Card/CardContent'
 
 export default function MaterialPage() {
+    // состояние где хранится список постов
     const [posts, setPosts] = useState([])
 
+    // функция для подгрузки постов из удаленного источника
     const fetchPosts = async () => {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts')
         const result = await response.json()
         setPosts(result)
     }
 
+    // выполнение функции подгрузки
     useEffect(() => {
         fetchPosts()
     }, [])
