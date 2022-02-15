@@ -12,6 +12,7 @@ export default function Header() {
         <div className={`header c-${theme}`}>
             <Link to="/"><p>Главная</p></Link>
             <Link to="about"><p>О нас</p></Link>
+            <Link to="material">Материал UI</Link>
             <ThemeButton>Mode</ThemeButton>
         </div>
     )

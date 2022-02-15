@@ -6,6 +6,8 @@ import { ModalContext, useModal } from './ModalContext';
 import AboutDetailsPage from './pages/AboutDetailsPage';
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
+import MaterialDetailsPage from './pages/MaterialDetailsPage';
+import MaterialPage from './pages/MaterialPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { ThemeContext } from './theme';
 
@@ -45,6 +47,8 @@ function App() {
                 <Route index element={<div>Bla bla</div>} />
                 <Route path="details" element={<div>About custom</div>} />
               </Route>
+              <Route path="material" element={<MaterialPage />} />
+              <Route path="material/:postId" element={<MaterialDetailsPage />} />
               <Route
                 path="*" 
                 element={<NotFoundPage />} 
